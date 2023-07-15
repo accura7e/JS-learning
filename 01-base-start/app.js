@@ -40,5 +40,7 @@ const isProgrammer = true
 // num = num2 - num
 // console.log(num, num2)
 
-let num3 = (num + 10) * 2 / 5 - 1
-console.log(num3)
+// let num3 = (num + 10) * 2 / 5 - 1
+// console.log(num3)
+
+const resultElement = document.getElementById('result')
