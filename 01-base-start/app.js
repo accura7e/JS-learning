@@ -44,3 +44,12 @@ const isProgrammer = true
 // console.log(num3)
 
 const resultElement = document.getElementById('result')
+// console.log(resultElement.textContent)
+// resultElement.textContent = 49-2
+const input1 = document.getElementById('input1')
+const input2 = document.getElementById('input2')
+// input1.value = 10 - 2
+// console.log(input1.value)
+
+const sum = Number(input1.value) + Number(input2.value)
+// resultElement.textContent = sum
