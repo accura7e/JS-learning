@@ -52,12 +52,34 @@ const submitBtn = document.getElementById('submit')
 // input1.value = 10 - 2
 // console.log(input1.value)
 
+const plusBtn = document.getElementById('plus')
+const minusBtn = document.getElementById('minus')
+let action = ''
 
 
 // resultElement.textContent = sum
+plusBtn.onclick = function(){
+    action = '+'
+
+}
+
+minusBtn.onclick = function(){
+    action = '-'
+
+}
+
 submitBtn.onclick = function (){
-    const sum = Number(input1.value) + Number(input2.value)
+
+    if (action == '+') {
+        const sum = Number(input1.value) + Number(input2.value)
     resultElement.textContent = sum
+    }
+
+    if (action == '-') {
+        const sum = Number(input1.value) - Number(input2.value)
+    resultElement.textContent = sum
+    }
+    
     
 }
 
