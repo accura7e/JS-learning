@@ -16,3 +16,5 @@ c = 4 ** 2
 
 
 console.log(c)
+
+// DATA TYPES
