@@ -1,6 +1,6 @@
-let num = 15
-let firstName = 'Philipp'
-const isProgrammer = true
+// let num = 15
+// let firstName = 'Philipp'
+// const isProgrammer = true
 
 /* Can Do
 

@@ -18,3 +18,8 @@ c = 4 ** 2
 console.log(c)
 
 // DATA TYPES
+const age = 29 // number
+const name = 'Philipp' // string
+const isProgrammer = 'true'
+let x // undefined
+// null
