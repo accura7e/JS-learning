@@ -23,3 +23,11 @@ const name = 'Philipp' // string
 const isProgrammer = 'true'
 let x // undefined
 // null
+
+const fullAge = 16
+const birthYear = 2007
+const currentYear = 2023
+
+const isFullYear = currentYear - birthYear >= fullAge
+
+console.log(isFullYear)
