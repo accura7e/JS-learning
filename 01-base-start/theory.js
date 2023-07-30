@@ -31,3 +31,7 @@ const currentYear = 2023
 const isFullYear = currentYear - birthYear >= fullAge
 
 console.log(isFullYear)
+
+const num1 = 42
+const num2 = '42'
+console.log(num1 === num2)
