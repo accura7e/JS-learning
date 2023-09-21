@@ -20,15 +20,17 @@ console.log(c)
 // DATA TYPES
 const age = 29 // number
 const name = 'Philipp' // string
-const isProgrammer = 'true'
+const isProgrammer = 'true' // boolean
 let x // undefined
 // null
+
+// PRIORITY
 
 const fullAge = 16
 const birthYear = 2007
 const currentYear = 2023
 
-const isFullYear = currentYear - birthYear >= fullAge
+const isFullAge = currentYear - birthYear >= fullAge
 
 console.log(isFullYear)
 
