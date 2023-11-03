@@ -1,61 +1,87 @@
-/*THEORY
+const inputElement = document.getElementById('title')
+const createBtn = document.getElementById('create')
+const listElement = document.getElementById('list')
+
+// const notes = ['выучить js', 'написать проект', 'получить профессию']
+
+// function render(){
+//     for(let note of notes){
+//       listElement.insertAdjacentElement('beforeend', getNoteTemplate(note))
+//     }
+// }
+// render()
 
 
-const array = [1 , 2 , 3 , 4 , 10] 
-const array = new Array(1,2,3,4,5)
-
-
- console.log(array.length)
- console.log(array[1])
- console.log(array[array.length-1])
- array[0] = 'hi'
- console.log(array[0])
- array[array.length] = 'fjsakl'
- console.log(array[5]) */
-
- const inputElement = document.getElementById('title')
- const createBtn = document.getElementById('create')
- const listElement = document.getElementById('list')
-
-//  console.log(inputElement.value)
-
-
-const notes = ['выучить js', 'познакомится с React']
+const notes = [{
+  title: 'Выучить js',
+  completed: false,
+},
+{
+  title: 'написать проект',
+  completed: false,
+},
+{
+  title: 'получить профессию',
+  completed: true,
+}]
 
 function render(){
-  listElement.insertAdjacentHTML('beforeend',
-  `<li
-    class="list-group-item d-flex justify-content-between align-items-center"
-  >
-    <span>${notes[0]}</span>
-    <span>
-      <span class="btn btn-small btn-success">&check;</span>
-      <span class="btn btn-small btn-danger">&times;</span>
-    </span>
-  </li> `
-  )
+  listElement.innerHTML = ''
+  if (notes.length === 0){
+    listElement.innerHTML = '<p>нет элементов</p>'
+  }
+    for (i = 0; i < notes.length; i++){
+      listElement.insertAdjacentHTML('beforeend', getNoteTemplate(notes[i], i))
+    }
 }
-
 render()
 
-createBtn.onclick = function(){
-  if(inputElement.value.length === 0){
+
+createBtn.onclick = function () {
+  if (inputElement.value.length === 0){
     return
   }
-
-
-
-inputElement.value = ''
+  const newNote = {
+    title: inputElement.value,
+    completed: false,
+  }
+  notes.push(newNote)
+  render()
+  inputElement.value = ''
 }
 
-function getNoteTemplate(){
-  return  `<li
-  class="list-group-item d-flex justify-content-between align-items-center"
->
-  <span>${notes[0]}</span>
-  <span>
-    <span class="btn btn-small btn-success">&check;</span>
-    <span class="btn btn-small btn-danger">&times;</span>
-  </span>
-</li> `
+
+listElement.onclick = function(event){
+  if (event.target.dataset.index){
+    const index = parseInt(event.target.dataset.index)
+    const type = event.target.dataset.type
+
+    if (type === 'toggle'){
+      notes[index].completed = !notes[index].completed
+    } else if (type === 'remove'){
+      notes.splice(index, 1)
+    }
+
+    render()
+  }
+
 }
+
+function getNoteTemplate(note, index){
+  return  `
+  <li
+        class="list-group-item d-flex justify-content-between align-items-center"
+      >
+        <span class='${note.completed ? 'text-decoration-line-through' : ''}'>${note.title}</span>
+        <span>
+          <span class="btn btn-small btn-${note.completed ? 'warning' : 'success'}" data-index='${index}' data-type="toggle">&check;</span>
+          <span class="btn btn-small btn-danger" data-index='${index}' data-type="remove">&times;</span>
+        </span>
+      </li>
+  `
+}
+
+
+
+
+
